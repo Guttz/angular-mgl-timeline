@@ -85,6 +85,20 @@ export class MglTimelineComponent implements AfterViewInit, OnChanges, OnDestroy
     }
   }
 
+  expandIndex(index){
+
+    console.log(index);
+    const currentEntry =  this.content.find((item, index: number) => index === index);
+
+    const path = [{localName: 'mgl-timeline-entry-dot'}]
+    
+    if (currentEntry) {
+      currentEntry.toggle({path});
+    }
+  }
+  
+
+
   @HostListener('window:resize', ['$event'])
   onResize(ev: KeyboardEvent) {
     console.log(this.mobileWidthThreshold);

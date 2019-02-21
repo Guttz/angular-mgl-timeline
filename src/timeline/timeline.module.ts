@@ -4,6 +4,10 @@ import { MglTimelineEntryContentComponent } from './timeline-entry-content/timel
 import { MglTimelineEntrySideComponent } from './timeline-entry-side/timeline-entry-side.component';
 import { MglTimelineEntryComponent } from './timeline-entry/timeline-entry.component';
 import { MglTimelineComponent } from './timeline/timeline.component';
+
+import { CommonModule } from '@angular/common';  
+import { BrowserModule } from '@angular/platform-browser';
+
 import { NgModule } from '@angular/core';
 @NgModule({
   declarations: [
@@ -13,6 +17,10 @@ import { NgModule } from '@angular/core';
     MglTimelineEntrySideComponent,
     MglTimelineEntryContentComponent,
     MglTimelineEntryDotComponent
+  ],
+  imports: [
+    CommonModule,
+    BrowserModule
   ],
   exports: [
     MglTimelineComponent,

@@ -3,7 +3,7 @@ import { MglTimelineEntrySideComponent } from './../timeline-entry-side/timeline
 import { Subscription } from 'rxjs/Subscription';
 import { MglTimelineEntryDotComponent } from './../timeline-entry-dot/timeline-entry-dot.component';
 import {
-  Component, AfterViewInit, Output, EventEmitter, ContentChild, OnDestroy, ElementRef
+  Component, AfterViewInit, Output, Input, EventEmitter, ContentChild, OnDestroy, ElementRef
 } from '@angular/core';
 import { MglTimelineEntryContentComponent } from '../timeline-entry-content/timeline-entry-content.component';
 import { MglTimelineEntryHeaderComponent } from '../timeline-entry-header/timeline-entry-header.component';
@@ -106,6 +106,7 @@ export class MglTimelineEntryComponent implements AfterViewInit, OnDestroy {
   }
 
   toggle($event) {
+    console.log($event);
     let headerFound = $event.path.filter(path => path.localName == 'mgl-timeline-entry-header').length > 0;
     let dotFound =  $event.path.filter(path => path.localName == 'mgl-timeline-entry-dot').length > 0;
     if (headerFound || dotFound) {

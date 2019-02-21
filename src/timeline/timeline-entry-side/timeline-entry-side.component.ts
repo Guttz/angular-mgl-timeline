@@ -1,4 +1,6 @@
-import { Component, Input, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import { CommonModule } from '@angular/common';  
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'mgl-timeline-entry-side',
@@ -8,8 +10,23 @@ import { Component, Input, ElementRef, ViewEncapsulation } from '@angular/core';
 })
 export class MglTimelineEntrySideComponent {
 
+  toggled: boolean = false;
+
+  @ViewChild("firstLine") firstLine;
+  @ViewChild("secondLine") secondLine;
+
   set alternate(value) {
+    //xdebugger;
+    //this.toggled = value;
     this.elementRef.nativeElement.classList.toggle('alternate', value);
+
+    if(!value){
+      this.secondLine.nativeElement.classList.add('disabledLine');
+      this.firstLine.nativeElement.classList.remove('disabledLine');
+    }else{
+      this.secondLine.nativeElement.classList.remove('disabledLine');
+      this.firstLine.nativeElement.classList.add('disabledLine');
+    }
   }
 
   set mobile(value) {
